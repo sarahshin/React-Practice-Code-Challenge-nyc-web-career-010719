@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MoreButton = (props) => {
-    return <button onClick={console.log("clicked")}>
+    return <button onClick={props.renderFourMoreSushis}>
             More sushi!
           </button>
 }

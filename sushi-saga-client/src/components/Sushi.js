@@ -1,29 +1,26 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 const Sushi = (props) => {
 
-  function handleClick(){
-    console.log("eaten")
+  const handleSushiClick = () => {
+    props.eatSushi(props.id)
   }
-
   return (
-    <Fragment>
     <div className="sushi">
       <div className="plate"
-           onClick={this.handleClick}>
+           onClick={handleSushiClick}>
         {
-          /* Tell me if this sushi has been eaten! */
-          true ?
-            <img src={props.imgUrl} width="100%" alt="sushi" />
-          :
+          props.eatenSushi.find(sushi=> sushi.id === props.id)
+           ?
             null
+          :
+            <img src={props.img_url} width="100%" alt="sushi"/>
         }
       </div>
       <h4 className="sushi-details">
         {props.name} - ${props.price}
       </h4>
     </div>
-    </Fragment>
   )
 }
 
